@@ -1,0 +1,47 @@
+<mat-toolbar class="actions">
+  <div class="actions__left-side">
+    <button mat-button (click)="checkThemAll()">Select all</button>
+    <button mat-button [disabled]="isDeleteDisabled" (click)="delete()">Delete</button>
+    <select class="sorting-order" (change)="sort($event)">
+      <option value="asc">Ascending</option>
+      <option value="desc">Descending</option>
+    </select>
+  </div>
+  <div class="actions__right-side">
+    <input matInput class="search-users"
+      placeholder="Search users"
+      [(ngModel)]="search"
+      (input)="filter()">
+  </div>
+</mat-toolbar>
+
+<div class="cards-container">
+  <div class="card-wrapper" *ngFor="let user of this.currentUsers">
+    <mat-card class="user-card">
+      <mat-card-actions align="end">
+        <mat-checkbox
+          class="card-checkbox"
+          [(ngModel)]="user.isChecked"
+          (change)="onCheckboxChange($event)">
+        </mat-checkbox>
+      </mat-card-actions>
+      <img mat-card-image
+           style="max-width: 20vw; height: auto;"
+           src="{{ user.img }}"
+           alt="{{ user.firstname + user.lastname }}">
+      <mat-card-header>
+        <mat-card-title>{{ user.lastname }}</mat-card-title>
+        <mat-card-subtitle> {{ user.firstname}}
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          Email: {{ user.email }}
+        </p>
+        <p>
+          Phone: {{ user.phone }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

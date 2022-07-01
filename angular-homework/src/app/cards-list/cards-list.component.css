@@ -1,0 +1,31 @@
+.card-wrapper {
+  width: 20%;
+  margin: 10px 10px 10px 0;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.actions__left-side > * {
+  margin-right: 20px;
+}
+
+.search-users {
+  margin-right: 50px;
+}
+
+.search-users, .sorting-order {
+  border: none;
+  background: #E1E7EA;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
