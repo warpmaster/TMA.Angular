@@ -1,0 +1,15 @@
+.user-card {
+  height: 420px;
+  width: 200px;
+}
+
+.user-image {
+  width: 150px;
+}
+
+mat-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0;
+}

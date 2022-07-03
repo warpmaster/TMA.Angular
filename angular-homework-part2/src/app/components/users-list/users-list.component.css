@@ -1,0 +1,37 @@
+a, a:visited, a:hover {text-decoration: none}
+
+app-user-card {
+  margin: 10px 0 10px 20px;
+}
+
+.cards-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.actions__left-side > * {
+  margin-right: 20px;
+}
+
+.search-users {
+  margin-right: 50px;
+}
+
+.search-users, .sorting-order {
+  border: none;
+  background: #E1E7EA;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.current-page {
+  padding-left: 30px;
+}

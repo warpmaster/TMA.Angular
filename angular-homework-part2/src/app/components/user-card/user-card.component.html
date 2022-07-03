@@ -1,0 +1,33 @@
+<mat-card class="user-card">
+  <mat-card-actions>
+    <a routerLink="/user-form">
+      <button mat-button type="button"
+              (click)="this.usersService.setSelectedUser(user)"><span>Edit</span>
+      </button>
+    </a>
+    <mat-checkbox
+      class="card-checkbox"
+      [(ngModel)]="user.isChecked"
+      (change)="checked($event)">
+    </mat-checkbox>
+  </mat-card-actions>
+  <div class="user-image">
+    <img mat-card-image class=""
+         src="{{ user.img }}"
+         alt="img">
+  </div>
+  <mat-card-header>
+    <mat-card-title>{{ user.lastname }}</mat-card-title>
+    <mat-card-subtitle>
+      {{ user.firstname}}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      Email: {{ user.email }}
+    </p>
+    <p>
+      Phone: {{ user.phone }}
+    </p>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,16 @@
+.user-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin: 30px 0 0 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.current-page {
+  padding-left: 30px;
+}
