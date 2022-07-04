@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
+import { FormControl, FormGroup, NgForm, Validators } from "@angular/forms";
 import { UsersService } from "../../services/users.service";
 
 import { User } from "../../users";
@@ -30,10 +30,10 @@ export class UserFormComponent implements OnInit {
 
     if (user) {
       this.model = [...Object.keys(this.model)]
-        .reduce((prev, current)  => {
+        .reduce((object, property)  => {
           // @ts-ignore
-          prev[current] = user[current as keyof User];
-          return prev;
+          object[property] = user[property as keyof User];
+          return object;
       }, {} as User);
     }
 
@@ -61,15 +61,20 @@ export class UserFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const formData = { id: this.model.id, ...this.form.value };
+    const user: User = { id: this.model.id, ...this.form.value };
+
     if (!this.model.id || this.model.id === -1) {
-      this.usersService.addUser(formData).subscribe();
+      this.usersService.addUser(user).subscribe();
     } else {
-      this.usersService.saveUser(formData).subscribe();
+      this.usersService.saveUser(user).subscribe();
     }
 
     this.model.id = -1;
     this.form.reset();
+
+    Object.keys(this.form.controls).forEach(key => {
+      this.form.controls[key].setErrors(null);
+    });
   }
 
   onBlur(property: string) {

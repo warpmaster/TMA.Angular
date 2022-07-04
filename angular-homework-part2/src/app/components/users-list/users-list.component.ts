@@ -57,7 +57,6 @@ export class UsersListComponent implements OnInit {
 
     this.users.forEach( user => {
       if (user.isChecked) {
-        console.log('user id:', user.id);
         this.usersService.deleteUser(user.id).subscribe();
       }
     });
